@@ -1,17 +1,19 @@
 inherit kf5
 
 NAME="kf5-libkdegames"
-VERSION=15.04.3
+VERSION=16.08.3
 RELEASE=1
 CATEGORY="Libs"
 SUMMARY="KDE game library"
-# this is shipped with applications, not frameworks
-SRC_URI="mirror://kde/stable/applications/${VERSION}/src/libkdegames-${VERSION}.tar.xz"
-SRC_DIR="libkdegames-${VERSION}"
 
-PKG_NAMES="libKF5KDEGames6 libKF5KDEGames-common libKF5KDEGames-devel"
-libKF5KDEGames6_REQUIRES="libKF5KDEGames-common"
-libKF5KDEGames6_CONTENTS="usr/bin/cygKF5KDEGames-6.dll usr/bin/cygKF5KDEGamesPrivate-*.dll usr/lib/qt5/"
+PKG_NAMES="libKF5KDEGames7 libKF5KDEGames-common libKF5KDEGames-devel"
+libKF5KDEGames7_REQUIRES="libKF5KDEGames-common"
+libKF5KDEGames7_OBSOLETES="libKF5KDEGames6"
+libKF5KDEGames7_CONTENTS="
+	usr/bin/cygKF5KDEGames-7.dll
+	usr/bin/cygKF5KDEGamesPrivate-*.dll
+	${QT5_QMLDIR#/}/org/kde/games/core/
+"
 libKF5KDEGames_common_CONTENTS="usr/share/"
 libKF5KDEGames_devel_REQUIRES="libKF5Completion-devel libKF5Config-devel libKF5ConfigWidgets-devel libKF5I18n-devel libKF5KDELibs4Support-devel libKF5WidgetsAddons-devel libQt5Quick-devel"
 libKF5KDEGames_devel_CONTENTS="usr/include/ usr/lib/cmake/ usr/lib/lib*"
